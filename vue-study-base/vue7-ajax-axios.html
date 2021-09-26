@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/axios.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+    </div>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                msg:'hi'
+            },
+            methods:{
+
+            },
+            watch:{
+
+            },
+            beforeCreate(){
+               console.log("实例创建之前调用，现在还访问不到实例对象的数据");
+            },
+            created(){
+                console.log("实例创建了，可以访问实例里的数据");
+            },
+            beforeMount(){
+                console.log("实例挂载之前，即将和模板关联");
+            },
+            mounted(){
+                console.log("实例挂载了，已经和模板关联完毕");
+            },
+            beforeUpdate(){
+                console.log("数据发生变化的时候执行");
+            },
+            update(){
+                console.log("数据变化之后执行");
+            }
+        }
+    );
+    function a(obj){
+        vm.arr=obj.s;
+    }
+</script>
