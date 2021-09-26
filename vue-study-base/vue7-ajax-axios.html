@@ -11,7 +11,19 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="msg">
+        <input type="button" value="查询" @click="findUserList">
+        <hr/>
+        name:<input type="text" v-model="user.name"><br/>
+        age:<input type="number" v-model="user.age"><br/>
+        <input type="button" value="新增" @click="addUser">
+        <hr/>
+        <input type="text" v-model="user.name"><input type="button" value="修改" @click="updateUser"></input>
+        <hr/>
+        <input type="button" value="删除" @click="deleteUser">
+        <hr/>
+        <ul>
+            <li v-for="t in userList">{{t}}</li>
+        </ul>
     </div>
 </body>
 </html>
@@ -20,35 +32,63 @@
         {
             el: "#app",
             data:{
-                msg:'hi'
+                userList:[],
+                user:{
+                    name:"",
+                    age:0
+                }
             },
             methods:{
+                findUserList(){
+                    var _this=this
+                    // axios.get("http://127.0.0.1:8080/text").then(function(data){
+                    //     console.log(data);
+                    //     _this.textList=data.data;
+                    // })
+                    //更多参考https://www.npmjs.com/package/axios
+                    axios.get("http://127.0.0.1:8080/user").then((data)=>{
+                        console.log(data);
+                        _this.userList=data.data;
+                    })
+                },
+                addUser(){
+                    var _this=this;
+                    console.log(_this.user);
+                    axios({
+                        method:"post",
+                        url:"http://127.0.0.1:8080/user",
+                        data:{
+                            name: _this.user.name,
+                            age:_this.user.age
+                        }
+                    }).then((data)=>{
+                        console.log(data);
+                        _this.findUserList()
+                    });
 
-            },
-            watch:{
-
-            },
-            beforeCreate(){
-               console.log("实例创建之前调用，现在还访问不到实例对象的数据");
-            },
-            created(){
-                console.log("实例创建了，可以访问实例里的数据");
-            },
-            beforeMount(){
-                console.log("实例挂载之前，即将和模板关联");
-            },
-            mounted(){
-                console.log("实例挂载了，已经和模板关联完毕");
-            },
-            beforeUpdate(){
-                console.log("数据发生变化的时候执行");
-            },
-            update(){
-                console.log("数据变化之后执行");
+                },
+                updateUser(){
+                    var _this=this;
+                    axios({
+                        method:"put",
+                        url:"http://127.0.0.1:8080/user",
+                        data:{
+                            name:_this.user.name,
+                            age:100
+                        }
+                    }).then((data)=>{
+                        console.log(data);
+                        _this.findUserList();
+                    });
+                },
+                deleteUser(){
+                    var _this=this
+                    axios.delete("http://127.0.0.1:8080/user",{params: {userName:"tzx"}}).then((data)=>{
+                        console.log(data);
+                        _this.findUserList();
+                    })
+                }
             }
         }
     );
-    function a(obj){
-        vm.arr=obj.s;
-    }
 </script>

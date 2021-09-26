@@ -10,12 +10,8 @@
 </head>
 <body>
     <div id="app">
-        <!---->
         <div :style="{width:'100px',height:'100px',background:`rgb(${rv},${gv},${bv})`}"></div>
 
-        <!--
-        <div style="width:100px;height:100px;background:rgb(0,0,0)"></div>
-        -->
         <p>
             R:<input v-model="rv" type="range" min="0" max="255" value="0"><span v-text="rv">0</span>
         </p>
