@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <H1>我是小明，我今年{{age}}岁</H1>
+    </div>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                age: 20
+            }
+        }
+    );
+    vm.age=23;
+</script>

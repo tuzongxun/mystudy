@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="choose('军事')">军事</button>
+        <button @click="choose('新闻')">新闻</button>
+        <button @click="choose('直播')">直播</button>
+        <ul v-show="'军事' === info">
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+            <li>军事</li>
+        </ul>
+        <ul  v-show="'新闻' === info">
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+        </ul>
+        <ul  v-show="'直播' === info">
+            <li>直播</li>
+            <li>直播</li>
+            <li>直播</li>
+            <li>直播</li>
+            <li>直播</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                info: "军事"
+            },
+            methods:{
+                choose(type){
+                    this.info=type;
+                }
+            }
+        }
+    );
+</script>

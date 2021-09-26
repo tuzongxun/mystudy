@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!---->
+        <div :style="{width:'100px',height:'100px',background:`rgb(${rv},${gv},${bv})`}"></div>
+
+        <!--
+        <div style="width:100px;height:100px;background:rgb(0,0,0)"></div>
+        -->
+        <p>
+            R:<input v-model="rv" type="range" min="0" max="255" value="0"><span v-text="rv">0</span>
+        </p>
+        <p>
+            G:<input v-model="gv" type="range" min="0" max="255" value="0"><span v-text="gv">0</span>
+        </p>
+        <p>
+            B:<input v-model="bv" type="range" min="0" max="255" value="0"><span v-text="bv">0</span>
+        </p>
+    </div>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                rv:0,
+                gv:0,
+                bv:0
+            },
+            methods:{
+                choose(type){
+                    this.info=type;
+                }
+            }
+        }
+    );
+</script>

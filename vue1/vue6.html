@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <input type="text" v-model="msg">
+        <hr/>
+        <h1 v-text="search"></h1>
+        模拟预搜索：<input type="search" v-model="search">
+        <hr/>
+        <ul >
+            <li v-for="m in arr">{{m}}</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                msg:'',
+                search:'',
+                arr:[]
+            },
+            methods:{
+
+            },
+            watch:{
+                msg(a){
+                    console.log("你变了"+a)
+                },
+                search(newValue){
+                    console.log(newValue);
+                    if(newValue === ''){
+                        console.log("清空");
+                        // var path="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=a";
+                        vm.arr=[];
+                    }else{
+                        var path="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+newValue+"&cb=a";
+                        var script=document.createElement("script")
+                        script.src=path;
+                        document.body.appendChild(script);
+                    }
+
+                },
+                arr(a){
+                    console.log(a);
+                }
+            }
+        }
+    );
+    function a(obj){
+        vm.arr=obj.s;
+    }
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <H2>我是小明，我今年{{age}}岁</H2>
+        <H2 v-text="name"></H2>
+        <hr/>
+
+        <h2 v-html="name"></h2>
+        <h2 v-html="url"></h2>
+        <hr/>
+
+        <h2 v-show="isshow">隐藏,实际底层是display，标签还在</h2>
+        <h2 v-show="5>2">显示,实际底层是display</h2>
+        <hr/>
+
+        <!-- 需要看标签还在不在，和v-show对比，节点树上上树和下树 -->
+        <h2 v-if="'男' === sex">男</h2>
+        <h2 v-else-if="'女' === sex">女</h2>
+        <h2 v-else>未知</h2>
+        <hr/>
+
+        <ul v-for="member in family">
+            <li>{{member}}</li>
+        </ul>
+        <hr/>
+
+        <!--v-on的简写即@,v-model只能给表单元素使用，给非表单元素使用时没有任何效果-->
+        <input v-model="mem" type="text"/><button @click="addmem">增加</button>
+        <ul v-for="(member,index) in family">
+            <li>{{index+1}}.{{member}}</li>
+        </ul>
+        <hr/>
+
+        <ul >
+            <li v-for="num in 5">{{num}}</li>
+        </ul>
+        <hr/>
+
+        <table border="1">
+            <tr v-for="row in 9">
+                <td v-for="col in 9" v-show="row >= col">{{col}}x{{row}}={{col*row}}</td>
+            </tr>
+        </table>
+        <hr/>
+
+        <h1>计算结果：{{num}}</h1>
+        <button @click="addone">单击+1</button>
+        <button v-on:click="minus">单击-1</button>
+        <hr/>
+
+    </div>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                age: 20,
+                name: "tuzongxun",
+                url: "<a href='http://www.baidu.com'>百度</a>",
+                isshow: false,
+                sex: "男",
+                family:[
+                    "爸爸",
+                    "妈妈",
+                    "自己"
+                ],
+                mem: "",
+                num: 0
+            },
+            methods:{
+                addmem(){
+                    vm.family.push(this.mem)
+                },
+                addone(){
+                    this.num++;
+                },
+                minus(){
+                    this.num--;
+                }
+            }
+        }
+    );
+    vm.age=23;
+</script>
