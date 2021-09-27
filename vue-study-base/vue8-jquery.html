@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="查询" @click="findUserList">
+        <hr/>
+        name:<input type="text" v-model="user.name"><br/>
+        age:<input type="number" v-model="user.age"><br/>
+        <input type="button" value="新增" @click="addUser">
+        <hr/>
+        <input type="text" v-model="user.name"><input type="button" value="修改" @click="updateUser"></input>
+        <hr/>
+        <input type="button" value="删除" @click="deleteUser">
+        <hr/>
+        <ul>
+            <li v-for="t in userList">{{t}}</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                userList:[],
+                user:{
+                    name:"",
+                    age:0
+                }
+            },
+            methods:{
+                findUserList(){
+                    var _this=this
+                    $.get("http://127.0.0.1:8080/user",(data)=>{
+                        console.log(data);
+                        _this.userList=data;
+                    })
+                },
+                addUser(){
+                    var _this=this;
+                    console.log(_this.user);
+                    $.ajax({
+                        url: "http://127.0.0.1:8080/user",
+                        type: "POST",
+                        data: JSON.stringify({name:_this.user.name,age:_this.user.age}),
+                        success: function(data){
+                            console.log(data);
+                            _this.findUserList();
+                        },
+                        contentType: "application/json;charset=UTF-8"
+                    });
+                },
+                updateUser(){
+                    var _this=this;
+                    $.ajax({
+                        url: "http://127.0.0.1:8080/user",
+                        type: "PUT",
+                        data: JSON.stringify({name:_this.user.name,age:100}),
+                        success: function(data){
+                            console.log(data);
+                            _this.findUserList();
+                        },
+                        contentType: "application/json;charset=UTF-8"
+                    });
+                },
+                deleteUser(){
+                    var _this=this
+                    $.ajax({
+                        url: "http://127.0.0.1:8080/user",
+                        type: "DELETE",
+                        data: {userName:"tzx"},
+                        success: function(data){
+                            console.log(data);
+                            _this.findUserList();
+                        },
+                    });
+
+                }
+            }
+        }
+    );
+</script>
