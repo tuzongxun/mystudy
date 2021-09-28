@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        #app{
+            width: 600px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>最大父组件,{{msg}}</h1>
+        <son :message="msg"></son>
+    </div>
+    <hr>
+    <template id="son">
+        <div class="son">
+            <p>子组件,{{message}}</p>
+        </div>
+    </template>
+
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{
+                msg:"我有一个亿"
+            },
+            methods: {},
+            components:{
+                son:{
+                    template: "#son",
+                    props:["message"]
+                }
+            }
+        }
+    );
+
+</script>

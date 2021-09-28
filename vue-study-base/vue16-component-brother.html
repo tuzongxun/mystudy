@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        #app{
+            width: 600px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+        .bro{
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>最大父组件</h1>
+        <hr>
+        <bro1></bro1>
+        <hr>
+        <bro2></bro2>
+    </div>
+    <hr>
+    <template id="bro1">
+        <div class="bro">
+            <p>{{car}}</p>
+            <button @click="sendCar">给兄弟送礼物</button>
+        </div>
+    </template>
+
+    <template id="bro2">
+        <div class="bro">
+            <p>{{car}}</p>
+        </div>
+    </template>
+
+</body>
+</html>
+<script>
+    Vue.prototype.$bus=new Vue();
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{},
+            methods: {},
+            components:{
+                bro1:{
+                    template: "#bro1",
+                    data(){
+                        return {
+                            car:"奔驰"
+                        }
+                    },
+                    methods:{
+                        sendCar(){
+                            this.$bus.$emit("gift",this.car);
+                        }
+                    }
+                },
+                bro2:{
+                    template: "#bro2",
+                    data(){
+                        return{
+                            car:""
+                        }
+                    },
+                    methods:{},
+                    mounted(){
+                      this.$bus.$on("gift",($event)=>{
+                          this.car=$event
+                      });
+                    }
+                }
+            }
+        }
+    );
+
+</script>

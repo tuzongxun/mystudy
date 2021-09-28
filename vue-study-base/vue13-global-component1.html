@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <a-template></a-template>
+        <a-template></a-template>
+        <hr>
+        <go></go>
+        <go></go>
+    </div>
+    <hr>
+    <template id="aTemplate">
+        <div>
+            <p>{{num}} <button @click="add">加一</button></p>
+            <go></go>
+        </div>
+    </template>
+    <template id="gTemplate">
+        <p>{{num1}} <button @click="add1">加1</button></p>
+    </template>
+</body>
+</html>
+<script>
+<!--    全局组件需要定义在局部之前-->
+    Vue.component("go",{
+        template: "#gTemplate",
+        data:function(){
+            return{
+                num1:0
+            }
+        },
+        methods:{
+            add1(){
+                this.num1++;
+            }
+        }
+    });
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{},
+            methods: {},
+            components:{
+                aTemplate:{
+                    template: "#aTemplate",
+                    data(){
+                        return{
+                            num:0
+                        }
+                    },
+                    methods:{
+                        add(){
+                            this.num++;
+                        }
+                    }
+                }
+            }
+        }
+    );
+
+</script>
