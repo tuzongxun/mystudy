@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1></com1>
+        <com1></com1>
+        <com1></com1>
+    </div>
+    <template id="atemplate">
+        <p>{{num}} <button @click="add">加一</button></p>
+    </template>
+</body>
+</html>
+<script>
+    var vm=new Vue(
+        {
+            el: "#app",
+            data:{},
+            methods: {},
+            components:{
+                com1:{
+                    template: "#atemplate",
+                    data(){
+                        return{
+                            num:0
+                        }
+                    },
+                    methods:{
+                        add(){
+                            this.num++;
+                        }
+                    }
+                }
+            }
+        }
+    );
+</script>
