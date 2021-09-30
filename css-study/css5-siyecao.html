@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <style>
+             /*清除样式*/
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                height: 2000px;
+            }
+            #d1{
+                position: relative;
+                left: 200px;
+                top: 100px;
+                width: 200px;
+                height: 200px;
+                /* border:dimgray solid 1px; */
+                animation:donghua 10s linear 0s infinite;
+            }
+            #y1{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 100px;
+                height: 100px;
+                background-color: forestgreen;
+                border-radius: 0px 90px 0px 90px;
+            }
+            #y2{
+                position: absolute;
+                left: 100px;
+                top: 0px;
+                width: 100px;
+                height: 100px;
+                background-color: forestgreen;
+                border-radius: 90px 0px 90px 0px;
+            }
+            #y3{
+                position: absolute;
+                left: 0px;
+                top: 100px;
+                width: 100px;
+                height: 100px;
+                background-color: forestgreen;
+                border-radius: 90px 0px 90px 0px;
+            }
+            #y4{
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                width: 100px;
+                height: 100px;
+                background-color: forestgreen;
+                border-radius: 0px 90px 0px 90px;
+            }
+
+            /*浏览器私有前缀，webkit是谷歌的，所以这个动画只能在谷歌浏览器中使用，如果要其他浏览器，需要换其他的定义*/
+            @-webkit-keyframes donghua{
+                from{
+                    transform: rotate(0deg);
+                }
+
+                to{
+                    transform: rotate(360deg);
+                }
+            }
+           
+           
+        </style>
+    </head>
+    <body>
+        <div id="d1">
+            <div id="y1"></div>
+            <div id="y2"></div>
+            <div id="y3"></div>
+            <div id="y4"></div>
+        </div>
+    </body>
+</html>

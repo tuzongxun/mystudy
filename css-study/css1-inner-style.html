@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+        <style>
+             /*清除样式*/
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            /*标签样式*/
+            div{
+                /*背景颜色*/
+                background-color: cadetblue;
+                /*文字颜色*/
+                color: brown;
+                width: 80%;
+                height: 50px;
+                /*文字居中,还可以right、left*/
+                text-align: center;
+                font-size: 30px;
+                /*字体样式,倾斜*/
+                font-style: italic;
+                /*透明度*/
+                opacity: 0.5;
+                /*光标小手*/
+                cursor: pointer;
+            }
+            /*类选择器*/
+            .sp{
+                color: chartreuse;
+            }
+            /*id选择器*/
+            #s{
+                color: rgb(237, 205, 100);
+            }
+            a{
+                color: crimson;
+                /*去掉a的下划线，还有underline/overline/line-throuth常用*/
+                text-decoration: none;
+            }
+            #cc{
+                height: 300px;
+                width: 200px;
+                background-color: cornflowerblue;
+            }
+            #unn{
+                /*去掉li前的图标*/
+                list-style: none;
+            }
+            #uss{
+                /*方形图标*/
+                list-style: square;
+            }
+            #ucc{
+                /*圆形图标*/
+                list-style: circle;
+            }
+            #di{
+                width: 500px;
+                height:500px;
+                background-image: url(1.jpg);
+                background-repeat: no-repeat;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div>
+            内部样式
+            <span class="sp">类选择器</span>
+            <span class="sp">类选择器</span>
+            <span id="s">id选择器</span>
+        </div>
+        <a href="http://www.baidu.com">baidu</a>
+        <div id="cc">
+            
+        </div>
+        <ul id="unn">
+            <li>aaa</li>
+            <li>aaa</li>
+        </ul>
+        <ul id="uss">
+            <li>sss</li>
+            <li>aaa</li>
+        </ul>
+        <ul id="ucc">
+            <li>bbb</li>
+            <li>bbb</li>
+        </ul>
+        <div id="di">
+
+        </div>
+    </body>
+</html>

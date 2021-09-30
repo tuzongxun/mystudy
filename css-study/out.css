@@ -1,0 +1,18 @@
+#d1{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    /*border和padding都可以使元素向外拓展*/
+    /*外边框*/
+    border: brown solid 5px;
+    /*内边距*/
+    padding: 20px;
+    /*标签间距*/
+    margin-bottom: 20px;
+}
+#d2{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    border: brown dashed 5px;
+}
