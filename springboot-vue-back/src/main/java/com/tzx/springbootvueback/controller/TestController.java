@@ -15,7 +15,7 @@ import java.util.List;
 @CrossOrigin
 public class TestController {
 
-	private static List<User> list = new ArrayList<>();
+	private static final List<User> list = new ArrayList<>();
 
 	static {
 		list.add(new User("tzx", 30));
@@ -53,7 +53,7 @@ public class TestController {
 			if (user.getName().equals(userName)) {
 				delUser=user;
 			}
-		};
+		}
 		list.remove(delUser);
 	}
 }

@@ -14,50 +14,152 @@
             body{
                 height: 2000px;
             }
+
+            .y11{ 
+                left: 0px;
+                top: 0px;
+                border-radius: 0px 190px 0px 190px;
+            }
+            .y12{
+                left: 200px;
+                top: 0px;
+                border-radius: 190px 0px 190px 0px;
+            }
+            .y13{
+                left: 0px;
+                top: 200px;
+                border-radius: 190px 0px 190px 0px;
+            }
+            .y14{
+                left: 200px;
+                top: 200px;
+                border-radius: 0px 190px 0px 190px;
+            }
+
+            .y31{ 
+                left: 0px;
+                top: 0px;
+                border-radius: 0px 190px 0px 190px;
+                background-color: lawngreen;
+            }
+            .y32{
+                left: 200px;
+                top: 0px;
+                border-radius: 190px 0px 190px 0px;
+                background-color: rgb(7, 19, 182);
+            }
+            .y33{
+                left: 0px;
+                top: 200px;
+                border-radius: 190px 0px 190px 0px;
+                background-color: rgb(139, 6, 6);
+            }
+            .y34{
+                left: 200px;
+                top: 200px;
+                border-radius: 0px 190px 0px 190px;
+                background-color: rgb(63, 3, 58);
+            }
+           
+
+
+
+
+            
+           
+            .y1{ 
+                left: 0px;
+                top: 0px;
+                border-radius: 0px 90px 0px 90px;
+            }
+            .y2{
+                left: 100px;
+                top: 0px;
+                border-radius: 90px 0px 90px 0px;
+            }
+            .y3{
+                left: 0px;
+                top: 100px;
+                border-radius: 90px 0px 90px 0px;
+            }
+            .y4{
+                left: 100px;
+                top: 100px;
+                border-radius: 0px 90px 0px 90px;
+                /* transform: scale(2); */
+            }
+
+            .yy1{
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                /* background-color: forestgreen; */
+                background-color: rgb(255, 0, 221);
+            }
+            .yy2{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background-color: rgb(7, 34, 189);
+                /* background-color: blue; */
+            }
+            .yy3{
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                /* background-color: rgb(7, 34, 189); */
+                /* background-color: blue; */
+            }
+            .yy4{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background-color: rgb(7, 151, 67);
+                transform: scale(2);
+                /* background-color: blue; */
+            }
+
             #d1{
                 position: relative;
-                left: 200px;
+                left: 500px;
                 top: 100px;
+                width: 400px;
+                height: 400px;
+                /* border:dimgray solid 1px; */
+                /* animation:donghua 1s linear 0s infinite; */
+            }
+
+            #d2{
+                position: relative;
+                left: 500px;
+                top: 200px;
                 width: 200px;
                 height: 200px;
                 /* border:dimgray solid 1px; */
-                animation:donghua 10s linear 0s infinite;
+                animation:donghua 5s linear 0s infinite;
             }
-            #y1{
-                position: absolute;
-                left: 0px;
-                top: 0px;
-                width: 100px;
-                height: 100px;
-                background-color: forestgreen;
-                border-radius: 0px 90px 0px 90px;
+            #d3{
+                position: relative;
+                /* background-color: rgb(202, 115, 166); */
+                left: 500px;
+                top: 300px;
+                width: 400px;
+                height: 400px;
+                /*透明度*/
+                opacity: 0.5;
+                /* border:rgb(196, 22, 187) solid 3px; */
+                animation:donghua 1s linear 0s infinite;
             }
-            #y2{
-                position: absolute;
-                left: 100px;
-                top: 0px;
-                width: 100px;
-                height: 100px;
-                background-color: forestgreen;
-                border-radius: 90px 0px 90px 0px;
-            }
-            #y3{
-                position: absolute;
-                left: 0px;
-                top: 100px;
-                width: 100px;
-                height: 100px;
-                background-color: forestgreen;
-                border-radius: 90px 0px 90px 0px;
-            }
-            #y4{
-                position: absolute;
-                left: 100px;
-                top: 100px;
-                width: 100px;
-                height: 100px;
-                background-color: forestgreen;
-                border-radius: 0px 90px 0px 90px;
+            #d4{
+                position: relative;
+                left: 500px;
+                top: 400px;
+                width: 200px;
+                height: 200px;
+                /*缩放*/
+                transform: scale(2);
+                /* border:dimgray solid 1px; */
+                animation:donghua 5s linear 0s infinite;
             }
 
             /*浏览器私有前缀，webkit是谷歌的，所以这个动画只能在谷歌浏览器中使用，如果要其他浏览器，需要换其他的定义*/
@@ -76,10 +178,28 @@
     </head>
     <body>
         <div id="d1">
-            <div id="y1"></div>
-            <div id="y2"></div>
-            <div id="y3"></div>
-            <div id="y4"></div>
+            <div class="yy1 y11"></div>
+            <div class="yy1 y12"></div>
+            <div class="yy1 y13"></div>
+            <div class="yy1 y14"></div>
+        </div>
+        <div id="d2">
+            <div class="yy2 y1"></div>
+            <div class="yy2 y2"></div>
+            <div class="yy2 y3"></div>
+            <div class="yy2 y4"></div>
+        </div>
+        <div id="d3">
+            <div class="yy3 y31"></div>
+            <div class="yy3 y32"></div>
+            <div class="yy3 y33"></div>
+            <div class="yy3 y34"></div>
+        </div>
+        <div id="d4">
+            <div class="yy4 y1"></div>
+            <div class="yy4 y2"></div>
+            <div class="yy4 y3"></div>
+            <div class="yy4 y4"></div>
         </div>
     </body>
 </html>
