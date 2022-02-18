@@ -1,10 +1,17 @@
-package cn.tzxcode.demo.java.thread;
+package cn.tzxcode.demo.java.d03_thread;
 
 /**
  * @Author tuzongxun
  * @Date 2022/2/16
  */
-public class CreateThread {
+public class CreateThreadDemo {
+	/**
+	 * 创建线程的基本方式有
+	 * 1.直接new Thread类或者子类,
+	 * 2.实现runnable,接口
+	 * 3.使用lambda表达式，实际上是实现runnable另一种写法
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Thread t1=new Thread();
 		t1.start();

@@ -1,6 +1,7 @@
-package cn.tzxcode.demo.java;
+package cn.tzxcode.demo.java.d02_collection;
 
 /**
+ * 验证hashmap源码中底层链表长度超过8时转红黑树
  * @Author tuzongxun
  * @Date 2022/1/9
  */

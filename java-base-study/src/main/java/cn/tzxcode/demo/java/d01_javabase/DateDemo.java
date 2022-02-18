@@ -1,4 +1,4 @@
-package cn.tzxcode.demo.java;
+package cn.tzxcode.demo.java.d01_javabase;
 
 import org.springframework.cache.annotation.CacheAnnotationParser;
 

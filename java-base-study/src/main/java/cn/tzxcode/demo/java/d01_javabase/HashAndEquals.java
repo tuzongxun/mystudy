@@ -1,4 +1,4 @@
-package cn.tzxcode.demo.java;
+package cn.tzxcode.demo.java.d01_javabase;
 
 import java.util.Objects;
 

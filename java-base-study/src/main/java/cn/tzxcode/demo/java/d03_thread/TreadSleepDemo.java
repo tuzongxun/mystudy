@@ -1,4 +1,4 @@
-package cn.tzxcode.demo.java.thread;
+package cn.tzxcode.demo.java.d03_thread;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import java.util.Date;
  * @Author tuzongxun
  * @Date 2022/2/16
  */
-public class TreadSleep {
+public class TreadSleepDemo {
 	public static void main(String[] args) {
 		Thread t1=new Thread(()->{
 			for(int i=0;i<50;i++){
