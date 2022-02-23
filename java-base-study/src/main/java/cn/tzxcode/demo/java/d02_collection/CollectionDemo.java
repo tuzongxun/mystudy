@@ -62,6 +62,8 @@ public class CollectionDemo {
 		//System.out.println("通话".hashCode());
 		//System.out.println("Aa".hashCode());
 		//System.out.println("BB".hashCode());
+
+
 	}
 
 	static final int tableSizeFor(int cap) {
